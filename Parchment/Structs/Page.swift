@@ -46,7 +46,7 @@ public struct Page {
     ///    - Returns: A new `Page` instance with the given header and content views.
     public init<Header: View, Content: View>(
         @ViewBuilder header: @escaping (PageState) -> Header,
-        @ViewBuilder content: () -> Content
+        @ViewBuilder content: @escaping () -> Content
     ) {
         let content = content()
 
