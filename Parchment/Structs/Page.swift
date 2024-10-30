@@ -48,7 +48,6 @@ public struct Page {
         @ViewBuilder header: @escaping (PageState) -> Header,
         @ViewBuilder content: @escaping () -> Content
     ) {
-        let content = content()
 
         self.reuseIdentifier = "CellIdentifier-\(String(describing: Header.self))"
         self.pageIdentifier = nil
@@ -75,11 +74,11 @@ public struct Page {
             }
         }
         self.content = {
-            UIHostingController(rootView: content)
+            return UIHostingController(rootView: content())
         }
         self.update = { viewController in
             let hostingController = viewController as! UIHostingController<Content>
-            hostingController.rootView = content
+            hostingController.rootView = content()
         }
     }
 

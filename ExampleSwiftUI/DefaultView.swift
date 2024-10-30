@@ -3,52 +3,39 @@ import SwiftUI
 import UIKit
 
 struct DefaultView: View {
+    @State var name: String = ""
+    
     var body: some View {
         PageView {
             Page { _ in
                 Image(systemName: "star.fill")
                     .padding()
             } content: {
-                Text("Page 1")
+                Text("Page 1: \(name)")
+                    .font(.largeTitle)
+                    .foregroundColor(.gray)
+            }
+            
+            Page { _ in
+                Image(systemName: "star")
+                    .padding()
+            } content: {
+                Text("Page 2: \(name)")
                     .font(.largeTitle)
                     .foregroundColor(.gray)
             }
 
-            Page("Title 2") {
-                Text("Page 2")
+            Page { _ in
+                Image(systemName: "circle.fill")
+                    .padding()
+            } content: {
+                Text("Page 3: \(name)")
                     .font(.largeTitle)
                     .foregroundColor(.gray)
             }
-
-            Page("Title 3") {
-                Text("Page 3")
-                    .font(.largeTitle)
-                    .foregroundColor(.gray)
-            }
-
-            Page("Title 4") {
-                Text("Page 4")
-                    .font(.largeTitle)
-                    .foregroundColor(.gray)
-            }
-
-            Page("Some very long title") {
-                Text("Page 5")
-                    .font(.largeTitle)
-                    .foregroundColor(.gray)
-            }
-
-            Page("Title 6") {
-                Text("Page 6")
-                    .font(.largeTitle)
-                    .foregroundColor(.gray)
-            }
-
-            Page("Title 7") {
-                Text("Page 7")
-                    .font(.largeTitle)
-                    .foregroundColor(.gray)
-            }
+        }
+        .onAppear {
+            name = "Hung"
         }
     }
 }
