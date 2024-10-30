@@ -64,7 +64,7 @@ struct PagingControllerRepresentableView: UIViewControllerRepresentable {
         if let currentItem = pagingViewController.state.currentPagingItem,
            let pageItem = currentItem as? PageItem,
             let oldItem = oldItems[pageItem.identifier] {
-            pagingViewController.reloadMenu()
+            pagingViewController.reloadData()
             
             if !oldItem.isEqual(to: currentItem) {
                 if let pageItem = currentItem as? PageItem,
